@@ -1,27 +1,34 @@
-//PEDIR NUMERO DE GRUPOS,PEDIR NUMERO DE ALUMNOS POR GRUPO,CAPTURAR CALIFICACIONES
-package eva1_11_ejemplo_arreglos;
+package eva1_11_ejample_arreglo;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-public class EVA1_11_EJEMPLO_ARREGLOS {
+public class Eva1_11_ejample_Arreglo {
 
     public static void main(String[] args) {
-
-        int arregloCali[][];
-        //PRIMER DIMENSION --> GRUPOS
-        //SEGUNDA DIMENSION --> ESTUDIANTES * GRUPO
-        //DETERMINAR LOS GRUPOS
-        Scanner leer = new Scanner(System.in);
-        System.out.println("Cuantos grupos vas a capturar?: ");
-        int iGrupo = leer.nextInt();
-        arregloCali = new int[iGrupo][];
-        for (int i = 0; i < arregloCali.length; i++) {
-            System.out.println("Cuantos estudiantes hay en el grupo " + (i + 1));
-            int iEst = leer.nextInt();
-            arregloCali[i] = new int[iEst];
+        Scanner input = new Scanner(System.in);
+        int [][] arrayCali ;
+        String grupo = JOptionPane.showInputDialog(null, "Ingresa numero de grupos");
+        int grupos = Integer.parseInt(grupo);
+        arrayCali = new int [grupos][];
+        //System.out.println(info.length);
+        for (int i = 0; i < arrayCali.length; i++) {
+            String alumno = JOptionPane.showInputDialog(null, "Ingresa numero de alumnos en el grupo: " + (i+1));
+            int alumnos =  Integer.parseInt(alumno);
+            arrayCali [i] = new int [alumnos];
+            System.out.println(arrayCali[i].length);
+            
+            for (int j = 0; j < arrayCali[i].length; j++) {                
+                String calif = JOptionPane.showInputDialog(null, "Ingresa la calificacion");
+                int calificaciones = Integer.parseInt(calif);
+                arrayCali [i][j] = calificaciones;
+            }
         }
-        //PARA CADA GRUPO; CUANTOS ESTUDIANTES NECESITAS?
-        arregloCali[0] = new int[10];
+        for (int i = 0; i < arrayCali.length; i++) { //primer dimension 3 filas
+            for (int j = 0; j < arrayCali[i].length; j++) { //segunda dimension 5 columnas               
+                JOptionPane.showMessageDialog(null, "[" + arrayCali[i][j] + "]");
+            }
+        }
     }
     
 }
