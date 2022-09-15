@@ -1,0 +1,16 @@
+package eva1_19_gcd;
+
+public class EVA1_19_GCD {
+
+    public static void main(String[] args) {
+        System.out.println(gcd(180, 48));
+    }
+    public static int gcd(int dividendo, int divisor){
+        int residuo = dividendo % divisor;
+        if(residuo == 0){
+            return divisor;
+        }else{
+            return gcd(divisor, residuo); 
+        }
+    }
+}
