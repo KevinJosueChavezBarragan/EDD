@@ -1,11 +1,7 @@
-package Eva1;
-public class Eva1_15_CopiaArreglos {
+package EVA1_15_COPIA_ARREGLOS;
+public class Eva1_15_COPIA_ARREGLOS {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
         int Arreglo [] = new int[10];
         
         System.out.println("------------------ARREGLO------------------");
