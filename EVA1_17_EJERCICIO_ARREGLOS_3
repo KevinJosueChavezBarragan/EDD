@@ -1,5 +1,5 @@
-package Eva1;
-public class Eva1_17_EjercicioArreglos_3 {
+package eva1_17_ejercicio_arreglos_3;
+public class EVA1_17_EJERCICIO_ARREGLOS_3 {
     public static void main(String[] args) {
         // TODO code application logic here
         int Matriz[][] = new int [5][5];
