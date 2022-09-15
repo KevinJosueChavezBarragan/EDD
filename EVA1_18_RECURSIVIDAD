@@ -1,0 +1,29 @@
+ackage eva1_18_recursividad;
+
+public class EVA1_18_RECURSIVIDAD {
+
+    public static void main(String[] args) {
+        falsoForDes(5);
+        System.out.println("");
+        falsoForAsc(5,1);
+    }
+    //IMPRIMIR UNA LISTA DE NUMEROS MAYOR A MENOR (DE MANERA RECURSIVA)
+    //RECIBO UN VALOR falsoForDes(5) --> "5-4-3-2-1"
+    public static void falsoForDes(int valor){
+        if(valor > 0){
+        //que voy a hacer
+        System.out.print(valor + "-");
+        //llamada recursiva
+        valor--;
+        falsoForDes(valor);
+        //detener la llamada recursiva
+        }
+    }
+    //falsoForAsc(5,1) --> 1 - 2 - 3 - 4 - 5 
+    public static void falsoForAsc(int valor, int ini){
+        if(ini <= valor){
+            System.out.print(ini + "-");
+            falsoForAsc(valor, ini + 1);
+        }
+    }
+}
