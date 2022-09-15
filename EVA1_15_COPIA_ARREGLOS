@@ -1,4 +1,4 @@
-package EVA1_15_COPIA_ARREGLOS;
+package eva1_15_copia_arreglos;
 public class Eva1_15_COPIA_ARREGLOS {
 
     public static void main(String[] args) {
