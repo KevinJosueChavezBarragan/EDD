@@ -1,7 +1,8 @@
-package Eva1;
-public class Eva1_16_EjerciciosArreglos5 {
+package eva1_16_ejercicios_arreglos;
+public class EVA1_16_EJERCICIOS_ARREGLOS {
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+
         int Aleat [] = new int [50];
         for (int i = 0; i < Aleat.length; i++) {
             Aleat [i] = ((int)(Math.random()*100))+1;
