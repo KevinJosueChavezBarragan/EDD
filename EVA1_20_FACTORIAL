@@ -1,0 +1,19 @@
+package eva1_20_factorial;
+
+public class EVA1_20_FACTORIAL {
+
+    public static void main(String[] args) {
+        Factorial(5);
+        System.out.println(Factorial(5));
+    }
+
+    //5 * 4 * 3 * 2 * 1
+
+    public static int Factorial(int valor) {
+        if (valor == 0) {
+            return 1;
+        }else{
+            return valor * Factorial(valor - 1);
+        }
+    }
+}
