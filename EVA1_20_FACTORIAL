@@ -3,7 +3,6 @@ package eva1_20_factorial;
 public class EVA1_20_FACTORIAL {
 
     public static void main(String[] args) {
-        Factorial(5);
         System.out.println(Factorial(5));
     }
 
