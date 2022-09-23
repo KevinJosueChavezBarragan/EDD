@@ -1,0 +1,18 @@
+package eva1_22_fibonacci;
+
+public class EVA1_22_FIBONACCI {
+
+    public static void main(String[] args) {
+        System.out.println(Fibonacci(6));
+    }
+
+    public static int Fibonacci(int valor) {
+        if (valor == 0) {
+            return 0;
+        } else if (valor == 1) {
+            return 1;
+        } else {
+            return (Fibonacci(valor - 1) + Fibonacci(valor - 2));
+        }
+    }
+}
