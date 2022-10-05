@@ -12,7 +12,7 @@ public class EVA2_1_LISTA_SIMPLE {
         miLista.agregar(60);
         miLista.imprimir();
         try{
-        miLista.agregarEn(70, 2);
+        miLista.agregarEn(70, 3);
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -20,6 +20,8 @@ public class EVA2_1_LISTA_SIMPLE {
             // miLista.agregar(1000);
         //}
         //System.out.println("Conteo de nodos: " + miLista.tamaLista());
+        miLista.vaciarLista();
+        miLista.imprimir();
         
     }
 }

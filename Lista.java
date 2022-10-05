@@ -12,11 +12,16 @@ public class Lista {
     }
 
     public void imprimir() {
-        Nodo temp = inicio;
-        //¿COMO MUEVO A TEMP?
-        while (temp != null) {
-            System.out.print(temp.getValor() + " - ");
-            temp = temp.getSiguiente();
+        if (inicio == null) {
+            System.out.println("LISTA VACIA");
+        } else {
+            Nodo temp = inicio;
+            //¿COMO MUEVO A TEMP?
+            while (temp != null) {
+                System.out.print(temp.getValor() + " - ");
+                temp = temp.getSiguiente();
+            }
+            System.out.println("");
         }
     }
 
@@ -75,9 +80,27 @@ public class Lista {
                     temp = temp.getSiguiente();
                     cont++;
                 }
-                System.out.println(temp.getValor() + " - ");
+                nuevoNodo.setSiguiente(temp.getSiguiente());
+                temp.setSiguiente(nuevoNodo);
 
             }
+        }
+    }
+
+    public void vaciarLista() {
+        inicio = null;
+        fin = null;
+    }
+    
+    public void borrarEn(int pos) throws Exception{
+        
+        int cantNodos = tamaLista();
+        if (pos < 0) {//posiciones negativas
+            throw new Exception("No puede borrar un nodo en una posición negativa");
+        } else if (pos >= cantNodos) {//INSERTAR EN POSICIONES NO VALIDAS
+            throw new Exception(pos + " no es una poscion válida");
+        } else {
+            
         }
     }
 }
