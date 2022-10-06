@@ -91,16 +91,39 @@ public class Lista {
         inicio = null;
         fin = null;
     }
-    
-    public void borrarEn(int pos) throws Exception{
-        
+
+    public void borrarEn(int pos) throws Exception {
+
         int cantNodos = tamaLista();
         if (pos < 0) {//posiciones negativas
             throw new Exception("No puede borrar un nodo en una posición negativa");
         } else if (pos >= cantNodos) {//INSERTAR EN POSICIONES NO VALIDAS
             throw new Exception(pos + " no es una poscion válida");
         } else {
-            
+            if (cantNodos == 1) {//borrar el primer nodo
+                vaciarLista();
+            } else {
+                //borrar primer nodo (Listo)
+                //borrar el intermedio
+                //borrar el final
+                if (pos == 0) {
+                    inicio = inicio.getSiguiente();
+                } else {
+                    Nodo temp = inicio;
+                    int cont = 0;
+                    //¿COMO MUEVO A TEMP?
+                    while (cont <= (pos - 1)) {
+                        temp = temp.getSiguiente();
+                        cont++;
+                    }
+                    Nodo objSig = temp.getSiguiente();
+                    temp.setSiguiente(objSig.getSiguiente());
+
+                    if (pos == (cantNodos - 1)) {//reconectar fin
+                        fin = temp;
+                    }
+                }
+            }
         }
     }
 }

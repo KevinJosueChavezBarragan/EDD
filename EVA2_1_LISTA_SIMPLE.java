@@ -20,6 +20,11 @@ public class EVA2_1_LISTA_SIMPLE {
             // miLista.agregar(1000);
         //}
         //System.out.println("Conteo de nodos: " + miLista.tamaLista());
+        try{
+        miLista.borrarEn(4);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
         miLista.vaciarLista();
         miLista.imprimir();
         
