@@ -1,4 +1,4 @@
-package eva2_4_queue;
+package eva2_5_stack;
 
 public class Nodo {
     private int valor;
