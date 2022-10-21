@@ -140,11 +140,13 @@ public class MyQueue {
                     }
                     Nodo objSig = temp.getSiguiente();
                     Nodo objPrev = temp.getPrevio();
-                    temp.setSiguiente(objSig.getSiguiente());
-                    temp.setPrevio(objPrev.getPrevio());
+                    
+                    objPrev.setSiguiente(objPrev);
 
                     if (pos == (cantNodos - 1)) {//reconectar fin
-                        fin = temp;
+                        fin = objPrev;
+                    }else{
+                        objSig.setPrevio(objPrev);
                     }
                 }
                 this.cont--;

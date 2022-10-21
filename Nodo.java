@@ -1,22 +1,22 @@
-package eva2_5_stack;
+package eva2_6_arbol_binario;
 
 public class Nodo {
     private int valor;
-    private Nodo siguiente;
-    Nodo previo;
+    private Nodo derecha;
+    private Nodo izquierda;
     
     //POR DEFAULT, UN NUEVO NODO VA AL FINAL DE LA LISTA
     //EL FINAL DE LA LISTA SE INDICA CON NULL
     //POR ESO NEXT = NULL
     public Nodo(){
-        this.siguiente = null;
-        this.previo = null;
+        this.derecha = null;
+        this.izquierda= null;
     }
 
     public Nodo(int valor) {
         this.valor = valor;
-        this.siguiente = null;
-        this.previo = null;
+        this.derecha = null;
+        this.izquierda = null;
     }
 
     public int getValor() {
@@ -27,21 +27,20 @@ public class Nodo {
         this.valor = valor;
     }
 
-    
-    public Nodo getSiguiente() {
-        return siguiente;
+    public Nodo getDerecha() {
+        return derecha;
     }
 
-    public void setSiguiente(Nodo siguiente) {
-        this.siguiente = siguiente;
-    }    
-
-    public Nodo getPrevio() {
-        return previo;
+    public void setDerecha(Nodo derecha) {
+        this.derecha = derecha;
     }
 
-    public void setPrevio(Nodo previo) {
-        this.previo = previo;
+    public Nodo getIzquierda() {
+        return izquierda;
+    }
+
+    public void setIzquierda(Nodo izquierda) {
+        this.izquierda = izquierda;
     }
     
 }

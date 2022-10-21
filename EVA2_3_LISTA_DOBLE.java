@@ -23,14 +23,16 @@ public class EVA2_3_LISTA_DOBLE {
         }
         
         listaDoble.imprimir();
+        listaDoble.imprimirInv();
         
         try {
-            listaDoble.borrarEn(5);
+            listaDoble.borrarEn(2);
         } catch (Exception ex) {
             Logger.getLogger(EVA2_3_LISTA_DOBLE.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        listaDoble.imprimir();    
+        listaDoble.imprimir();
+        listaDoble.imprimirInv();
     }
     
 }

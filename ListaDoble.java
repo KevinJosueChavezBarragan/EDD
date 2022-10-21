@@ -34,6 +34,20 @@ public class ListaDoble {
         }
     }
     
+    public void imprimirInv() {
+        if (listaVacia()) {
+            System.out.println("LISTA VACIA");
+        } else {
+            Nodo temp = fin;
+            //¿COMO MUEVO A TEMP?
+            while (temp != null) {
+                System.out.print(temp.getValor() + " - ");
+                temp = temp.getPrevio();
+            }
+            System.out.println("");
+        }
+    }
+    
     public int tamaLista() {
         return this.cont;
     }
@@ -120,11 +134,13 @@ public class ListaDoble {
                     }
                     Nodo objSig = temp.getSiguiente();
                     Nodo objPrev = temp.getPrevio();
-                    temp.setSiguiente(objSig.getSiguiente());
-                    temp.setPrevio(objPrev.getPrevio());
+                    
+                    objPrev.setSiguiente(objPrev);
 
                     if (pos == (cantNodos - 1)) {//reconectar fin
-                        fin = temp;
+                        fin = objPrev;
+                    }else{
+                        objSig.setPrevio(objPrev);
                     }
                 }
                 this.cont--;

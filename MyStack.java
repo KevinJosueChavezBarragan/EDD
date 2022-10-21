@@ -56,6 +56,30 @@ public class MyStack {
         cont++;
     }
     
+    public void push (int valor){
+        agregar(valor);
+    }
+    
+    public Integer peek(){
+        
+        if(listaVacia()){
+            return null;
+        }else{
+            return fin.getValor();
+        }
+    }
+    
+    public Integer pop() throws Exception{
+        
+        if(listaVacia()){
+            return null;
+        }else{
+            int valor = fin.getValor();
+            borrarEn(tamaLista() - 1);
+            return valor;
+        }
+    }
+    
     public void agregarEn(int valor, int pos) throws Exception {
         //QUE DEBEMOS VALIDAR
 
@@ -120,11 +144,13 @@ public class MyStack {
                     }
                     Nodo objSig = temp.getSiguiente();
                     Nodo objPrev = temp.getPrevio();
-                    temp.setSiguiente(objSig.getSiguiente());
-                    temp.setPrevio(objPrev.getPrevio());
+                    
+                    objPrev.setSiguiente(objPrev);
 
                     if (pos == (cantNodos - 1)) {//reconectar fin
-                        fin = temp;
+                        fin = objPrev;
+                    }else{
+                        objSig.setPrevio(objPrev);
                     }
                 }
                 this.cont--;
