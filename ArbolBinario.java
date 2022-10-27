@@ -85,8 +85,8 @@ public class ArbolBinario {
             
         }else{
             System.out.print(nodo.getValor() + "-");
-            inOrderRecu(nodo.getIzquierda());
-            inOrderRecu(nodo.getDerecha());
+            preOrderRecu(nodo.getIzquierda());
+            preOrderRecu(nodo.getDerecha());
         }
     }
     
@@ -104,8 +104,8 @@ public class ArbolBinario {
         if(nodo == null){
             
         }else{
-            inOrderRecu(nodo.getIzquierda());
-            inOrderRecu(nodo.getDerecha());
+            postOrderRecu(nodo.getIzquierda());
+            postOrderRecu(nodo.getDerecha());
             System.out.print(nodo.getValor() + "-");
         }
     }
