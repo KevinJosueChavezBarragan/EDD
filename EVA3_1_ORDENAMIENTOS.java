@@ -96,4 +96,20 @@ public class EVA3_1_ORDENAMIENTOS {
             arreglo[insP] = temp;
         }
     }
+    
+    //QUICKSORT PUBLICO
+    public static void quickSort(int[] arreglo){
+        quickSortRec(arreglo, 0, arreglo.length - 1);
+    }
+    
+    //QUICKSORT PRIVADO
+    private static void quickSortRec(int[] arreglo, int ini, int fin){
+        //pivote --> posicion
+        //dos indices
+        //ind_gran --> busca los mayores al pivote
+        //ind_peq --> busca los menores al pivote
+        //si se encuentran valores, se intercambian
+        //si se cruzan, se intercambia pivote con ind_peq
+        //quicksort a cada lado del pivote
+    }
 }
