@@ -13,6 +13,7 @@ public class EVA3_1_ORDENAMIENTOS {
         int[] arregloDatos = new int[15];
         int[] arregloSel = new int[arregloDatos.length];
         int[] arregloIns = new int[arregloDatos.length];
+        int[] arregloQ = new int[arregloDatos.length];
         System.out.println("ARREGLO ORIGINAL:");
         llenar(arregloDatos);
         imprimir(arregloDatos);
@@ -32,84 +33,128 @@ public class EVA3_1_ORDENAMIENTOS {
         fin = System.nanoTime();
         imprimir(arregloIns);
         System.out.println("Insertion sort = " + (fin - ini));
+        System.out.println("QUICK SORT:");
+        copiar(arregloDatos, arregloQ);
+        imprimir(arregloQ);
+        ini = System.nanoTime();
+        quickSort(arregloQ);
+        fin = System.nanoTime();
+        imprimir(arregloQ);
+        System.out.println("Quick sort = " + (fin - ini));
     }
-    
+
     //llenar arreglo
-    public static void llenar(int[] arreglo){
+    public static void llenar(int[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
             arreglo[i] = (int) (Math.random() * 100);
         }
     }
+
     //imprimir arreglo
-    public static void imprimir(int[] arreglo){
+    public static void imprimir(int[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
-            if(arreglo[i] < 10)
-               System.out.print("[0" + arreglo[i] + "]");
-            else
-               System.out.print("[" + arreglo[i] + "]");
+            if (arreglo[i] < 10) {
+                System.out.print("[0" + arreglo[i] + "]");
+            } else {
+                System.out.print("[" + arreglo[i] + "]");
+            }
         }
         System.out.println("");
     }
+
     //copiar arreglo
-    public static void copiar(int[] arreglo, int[] copia){
+    public static void copiar(int[] arreglo, int[] copia) {
         for (int i = 0; i < arreglo.length; i++) {
-            copia[i] = arreglo[i]; 
+            copia[i] = arreglo[i];
         }
     }
+
     //SELECTION SORT
     //COMPARACIONES
     //INTERCAMBIOS (SWAP)
-    public static void selectionSort(int[] arreglo){
+    public static void selectionSort(int[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
             int min = i;
             //BUSCO EL ELEMENTO (POSICION) MAS PEQUEñO
             for (int j = i + 1; j < arreglo.length; j++) {
                 //buscar el mas pequeño
-                if(arreglo[min] > arreglo[j])
+                if (arreglo[min] > arreglo[j]) {
                     min = j;
+                }
             }
             //SWAP INTERCAMBIAR
-            if(min != i){
+            if (min != i) {
                 int temp = arreglo[i];
                 arreglo[i] = arreglo[min];
                 arreglo[min] = temp;
             }
         }
     }
-    
+
     //INSERTION SORT
-    public static void insertionSort(int[] arreglo){
+    public static void insertionSort(int[] arreglo) {
         for (int i = 1; i < arreglo.length; i++) {
             int temp = arreglo[i];
             int insP = i;
             //BUSCAMOS EN QUE PUNTO DEBE DE QUEDAR TEMP
             //ESA POSICION ES ALMACENADA EN INSP
-            for (int prev = i-1; prev >= 0; prev--) {
-                if(arreglo[prev] > temp){
+            for (int prev = i - 1; prev >= 0; prev--) {
+                if (arreglo[prev] > temp) {
                     //swap(intercambio parcial)
                     arreglo[insP] = arreglo[prev];
                     insP--;
-                }else{
+                } else {
                     break;
                 }
             }
             arreglo[insP] = temp;
         }
     }
-    
+
     //QUICKSORT PUBLICO
-    public static void quickSort(int[] arreglo){
+    public static void quickSort(int[] arreglo) {
         quickSortRec(arreglo, 0, arreglo.length - 1);
     }
-    
+
     //QUICKSORT PRIVADO
-    private static void quickSortRec(int[] arreglo, int ini, int fin){
+    private static void quickSortRec(int[] arreglo, int ini, int fin) {
         //pivote --> posicion
         //dos indices
+        int pivote, big, small, temp;
         //ind_gran --> busca los mayores al pivote
         //ind_peq --> busca los menores al pivote
-        //si se encuentran valores, se intercambian
-        //si se cruzan, se intercambia pivote con ind_peq
+        pivote = ini;
+        big = ini;
+        small = fin;
+
+        if (ini < fin) {
+            while (big < small) {//los indices se cruzaron
+                //busca los elementos mas grandes
+                while ((arreglo[big] <= arreglo[pivote]) && (big < small)) {
+                    big++;
+                }
+
+                //busca los elementos mas pequeños
+                while (arreglo[small] > arreglo[pivote]) {
+                    small--;
+                }
+
+                //si se encuentran valores, se intercambian
+                if (big < small) {
+                    temp = arreglo[big];
+                    arreglo[big] = arreglo[small];
+                    arreglo[small] = temp;
+                }
+            }
+            //si se cruzan, se intercambia pivote con ind_peq
+            temp = arreglo[pivote];
+            arreglo[pivote] = arreglo[small];
+            arreglo[small] = temp;
+            pivote = small;
         //quicksort a cada lado del pivote
+
+            quickSortRec(arreglo, ini, pivote - 1);
+            quickSortRec(arreglo, pivote + 1, fin);
+        }
     }
 }
